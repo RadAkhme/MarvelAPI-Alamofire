@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SnapKit
 
 class MarvelViewController: UIViewController {
     
     // MARK: - Outlets
     
     private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(MarvelTableViewCell.self, forCellReuseIdentifier: MarvelTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
@@ -23,9 +24,9 @@ class MarvelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "MARVEL"
+        title = "MARVEL HERO"
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .red
+        view.backgroundColor = .systemRed
         setupHierarchy()
         setupLayout()
     }
@@ -44,3 +45,23 @@ class MarvelViewController: UIViewController {
     }
 }
 
+extension MarvelViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MarvelTableViewCell
+        return cell ?? UITableViewCell()
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        90
+    }
+}
