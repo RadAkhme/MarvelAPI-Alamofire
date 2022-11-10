@@ -12,6 +12,7 @@
 		93AB94B9291D713C007D74D4 /* MarvelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB94B8291D713C007D74D4 /* MarvelViewController.swift */; };
 		93AB94BE291D7143007D74D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93AB94BD291D7143007D74D4 /* Assets.xcassets */; };
 		93AB94C1291D7143007D74D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93AB94BF291D7143007D74D4 /* LaunchScreen.storyboard */; };
+		93AB94D0291D772A007D74D4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 93AB94CF291D772A007D74D4 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93AB94D0291D772A007D74D4 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +130,9 @@
 			dependencies = (
 			);
 			name = "MarvelAPI Alamofire";
+			packageProductDependencies = (
+				93AB94CF291D772A007D74D4 /* SnapKit */,
+			);
 			productName = "MarvelAPI Alamofire";
 			productReference = 93AB94B1291D713C007D74D4 /* MarvelAPI Alamofire.app */;
 			productType = "com.apple.product-type.application";
@@ -156,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 93AB94A8291D713C007D74D4;
+			packageReferences = (
+				93AB94CE291D772A007D74D4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 93AB94B2291D713C007D74D4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -394,6 +402,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		93AB94CE291D772A007D74D4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		93AB94CF291D772A007D74D4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93AB94CE291D772A007D74D4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 93AB94A9291D713C007D74D4 /* Project object */;
 }
