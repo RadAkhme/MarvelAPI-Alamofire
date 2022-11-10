@@ -12,6 +12,22 @@ class MarvelTableViewCell: UITableViewCell {
     
     static var identifier = "cell"
     
+    var hero: Hero? {
+        didSet {
+            descriptionText.text = hero?.description
+            name.text = hero?.name
+            
+            guard let imagePath = hero?.thumbnail,
+                  let imageURL = URL(string: imagePath),
+                  let imageData = try? Data(contentsOf: imageURL)
+            else {
+                heroImage.image = UIImage(named: "bg")
+                return
+            }
+            heroImage.image = UIImage(data: imageData)
+        }
+    }
+    
     private let imageContainer: UIView = {
         let container = UIView()
         container.clipsToBounds = true
@@ -19,18 +35,18 @@ class MarvelTableViewCell: UITableViewCell {
         return container
     }()
     
-    var heroImage: UIImageView = {
+    private let heroImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         return image
     }()
     
-    var name: UILabel = {
+    private let name: UILabel = {
         let label = UILabel()
         return label
     }()
     
-    var text: UILabel = {
+    private let descriptionText: UILabel = {
         let label = UILabel()
         return label
     }()
@@ -61,7 +77,7 @@ class MarvelTableViewCell: UITableViewCell {
         imageContainer.addSubview(heroImage)
         contentView.addSubview(stack)
         stack.addArrangedSubview(name)
-        stack.addArrangedSubview(text)
+        stack.addArrangedSubview(descriptionText)
     }
     
     private func setupLayout() {

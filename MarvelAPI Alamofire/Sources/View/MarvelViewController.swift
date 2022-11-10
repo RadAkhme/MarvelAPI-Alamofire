@@ -10,6 +10,8 @@ import SnapKit
 
 class MarvelViewController: UIViewController {
     
+    var heroes = [Hero]()
+
     // MARK: - Outlets
     
     private lazy var tableView: UITableView = {
@@ -48,7 +50,7 @@ class MarvelViewController: UIViewController {
 extension MarvelViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
+        return heroes.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,6 +59,8 @@ extension MarvelViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MarvelTableViewCell
+        cell?.hero = heroes[indexPath.row]
+
         return cell ?? UITableViewCell()
         
     }

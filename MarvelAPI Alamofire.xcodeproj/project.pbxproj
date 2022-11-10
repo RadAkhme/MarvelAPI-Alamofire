@@ -15,6 +15,7 @@
 		93AB94D0291D772A007D74D4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 93AB94CF291D772A007D74D4 /* SnapKit */; };
 		93AB94D3291D779C007D74D4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 93AB94D2291D779C007D74D4 /* Alamofire */; };
 		93AB94D5291D7AED007D74D4 /* MarvelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB94D4291D7AED007D74D4 /* MarvelTableViewCell.swift */; };
+		93AB94D7291D7EA9007D74D4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AB94D6291D7EA9007D74D4 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		93AB94C0291D7143007D74D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93AB94C2291D7143007D74D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93AB94D4291D7AED007D74D4 /* MarvelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelTableViewCell.swift; sourceTree = "<group>"; };
+		93AB94D6291D7EA9007D74D4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		93AB94CD291D7308007D74D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				93AB94D6291D7EA9007D74D4 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93AB94D7291D7EA9007D74D4 /* Model.swift in Sources */,
 				93AB94B9291D713C007D74D4 /* MarvelViewController.swift in Sources */,
 				93AB94B5291D713C007D74D4 /* AppDelegate.swift in Sources */,
 				93AB94D5291D7AED007D74D4 /* MarvelTableViewCell.swift in Sources */,
