@@ -6,16 +6,34 @@
 //
 
 import Foundation
+import Alamofire
+
+
+struct MarvelInfo: Decodable {
+    let data: Heroes
+}
 
 struct Heroes: Decodable {
-    var results: [Hero]
+    let results: [Hero]
 }
 
 struct Hero: Decodable {
-    var name: String
-    var description: String
-    var thumbnail: String?
+    let id: Int
+    let name: String
+    let description: String
+    let thumbnail: Thumbnail
+}
+
+struct Thumbnail: Decodable {
+    let path: String
+    let ext: String
     
+    var url: String {
+        return path + "." + ext
+    }
     
-    
+    enum CodingKeys: String, CodingKey {
+        case path
+        case ext = "extension"
+    }
 }
