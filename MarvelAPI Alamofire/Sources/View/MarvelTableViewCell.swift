@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class MarvelTableViewCell: UITableViewCell {
     
@@ -14,10 +15,9 @@ class MarvelTableViewCell: UITableViewCell {
     
     var hero: Hero? {
         didSet {
-            descriptionText.text = hero?.description
             name.text = hero?.name
             
-            guard let imagePath = hero?.thumbnail,
+            guard let imagePath = hero?.thumbnail.url,
                   let imageURL = URL(string: imagePath),
                   let imageData = try? Data(contentsOf: imageURL)
             else {
@@ -32,17 +32,20 @@ class MarvelTableViewCell: UITableViewCell {
         let container = UIView()
         container.clipsToBounds = true
         container.layer.cornerRadius = 10
+        container.layer.borderWidth = 2
+        container.layer.borderColor = UIColor.gray.cgColor
         return container
     }()
     
     private let heroImage: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
     private let name: UILabel = {
         let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 18)
         return label
     }()
     
@@ -81,11 +84,10 @@ class MarvelTableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        
         imageContainer.snp.makeConstraints { make in
             make.left.equalTo(contentView.snp.left).offset(20)
             make.centerY.equalTo(contentView)
-            make.height.equalTo(contentView).dividedBy(1.5)
+            make.height.equalTo(contentView).dividedBy(1.2)
             make.width.equalTo(imageContainer.snp.height)
         }
         
@@ -97,6 +99,16 @@ class MarvelTableViewCell: UITableViewCell {
         stack.snp.makeConstraints { make in
             make.centerY.equalTo(imageContainer)
             make.left.equalTo(imageContainer.snp.right).offset(20)
+            make.right.equalTo(contentView).offset(-20)
         }
+    }
+    
+    // MARK: - Reuse
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.accessoryType = .none
+        self.hero = nil
+        
     }
 }
